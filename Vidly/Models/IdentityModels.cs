@@ -33,4 +33,5 @@ namespace Vidly.Models
 
 
     //zmiany
+    // cos zmienilem
 }
