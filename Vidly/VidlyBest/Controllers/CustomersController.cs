@@ -10,36 +10,72 @@ using VidlyBest.ViewModels;
 
 namespace VidlyBest.Controllers
 {
-    public class CustomersController : Controller
-    {
-        private MyDbContext db = new MyDbContext();
+	public class CustomersController : Controller
+	{
+		private MyDbContext db = new MyDbContext();
 
-        public ViewResult Index()
-        {
-            var customers = db.Customers.Include(c => c.MembershipType).ToList();
-
-            return View(customers);
-        }
-
-        public ActionResult Details(int id)
-        {
-            var customer = db.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
-
-            if (customer == null)
-                return HttpNotFound();
-
-            return View(customer);
-        }
-         
-        public ActionResult New()
+		public ViewResult Index()
 		{
-            var membershipTypes = db.MembershipTypes.ToList();
-            var viewModel = new NewCustomerViewModel
-            {
-                MembershipTypes = membershipTypes
-            };
+			var customers = db.Customers.Include(c => c.MembershipType).ToList();
 
-            return View(viewModel);
+			return View(customers);
 		}
-    }
+
+		public ActionResult Details(int id)
+		{
+			var customer = db.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
+
+			if (customer == null)
+				return HttpNotFound();
+
+			return View(customer);
+		}
+
+		public ActionResult New()
+		{
+			var membershipTypes = db.MembershipTypes.ToList();
+			var viewModel = new CustomerFormViewModel
+			{
+				MembershipTypes = membershipTypes
+			};
+
+			return View("CustomerForm", viewModel);
+		}
+
+		[HttpPost]
+		public ActionResult Save(Customer customer)
+		{
+			if (customer.Id == 0)
+				db.Customers.Add(customer);
+			else
+			{
+				var customerInDb = db.Customers.Single(c => c.Id == customer.Id);
+
+				customerInDb.Name = customer.Name;
+				customerInDb.Birthdate = customer.Birthdate;
+				customerInDb.MembershipTypeId = customer.MembershipTypeId;
+				customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+			}
+
+			db.SaveChanges();
+
+			return RedirectToAction("Index", "Customers");
+		}
+
+		public ActionResult Edit(int id)
+		{
+			var customer = db.Customers.SingleOrDefault(c => c.Id == id);
+
+			if (customer == null)
+				return HttpNotFound();
+
+			var viewModel = new CustomerFormViewModel
+			{
+				Customer = customer,
+				MembershipTypes = db.MembershipTypes.ToList()
+			};
+
+			return View("CustomerForm", viewModel);
+		}
+	}
 }
