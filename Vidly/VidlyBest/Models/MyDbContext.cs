@@ -16,5 +16,7 @@ namespace VidlyBest.Models
 
 		public DbSet<MembershipType> MembershipTypes { get; set; }
 
+		public DbSet<Genre> Genres { get; set; }
+
 	}
 }

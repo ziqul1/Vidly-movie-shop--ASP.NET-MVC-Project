@@ -34,6 +34,7 @@ namespace VidlyBest.Controllers
 		public ActionResult New()
 		{
 			var membershipTypes = db.MembershipTypes.ToList();
+
 			var viewModel = new CustomerFormViewModel
 			{
 				MembershipTypes = membershipTypes
@@ -43,8 +44,20 @@ namespace VidlyBest.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public ActionResult Save(Customer customer)
 		{
+			if (!ModelState.IsValid)
+			{
+				var viewModel = new CustomerFormViewModel
+				{
+					Customer = customer,
+					MembershipTypes = db.MembershipTypes.ToList()
+				};
+
+				return View("CustomerForm", viewModel);
+			}
+
 			if (customer.Id == 0)
 				db.Customers.Add(customer);
 			else
