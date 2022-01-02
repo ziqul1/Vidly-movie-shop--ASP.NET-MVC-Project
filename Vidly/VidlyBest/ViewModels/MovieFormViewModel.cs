@@ -11,8 +11,6 @@ namespace VidlyBest.ViewModels
 {
 	public class MovieFormViewModel
 	{
-		//private MyDbContext db = new MyDbContext();
-
 		public IEnumerable<Genre> Genres { get; set; }
 
 		//public Movie Movie { get; set; }
@@ -57,11 +55,5 @@ namespace VidlyBest.ViewModels
 			NumberInStock = movie.NumberInStock;
 			GenreId = movie.GenreId;
 		}
-
-		//var viewModel = new MovieFormViewModel
-		//{
-		//	ReleaseDate = DateTime.Now,
-		//	Genres = db.Genres.ToList()
-		//};
 	}
 }

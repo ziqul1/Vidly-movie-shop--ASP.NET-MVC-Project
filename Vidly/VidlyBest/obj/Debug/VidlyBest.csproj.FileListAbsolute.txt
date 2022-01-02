@@ -332,3 +332,11 @@ C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.csproj.Gen
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.csproj.CoreCompileInputs.cache
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.dll
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.pdb
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\System.Net.Http.Formatting.dll
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\System.Web.Http.dll
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\System.Web.Http.WebHost.dll
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\System.Net.Http.Formatting.xml
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\System.Web.Http.xml
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\System.Web.Http.WebHost.xml
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\AutoMapper.dll
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\AutoMapper.xml
