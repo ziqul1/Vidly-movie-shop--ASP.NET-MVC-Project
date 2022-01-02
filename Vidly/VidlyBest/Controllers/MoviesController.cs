@@ -31,12 +31,10 @@ namespace VidlyBest.Controllers
 
 		public ViewResult Create()
 		{
-			//var movie = new Movie { ReleaseDate = DateTime.Now };
 			var genres = db.Genres.ToList();
 
 			var viewModel = new MovieFormViewModel
 			{
-				//Movie = movie,
 				Genres = genres
 			};
 
@@ -80,15 +78,13 @@ namespace VidlyBest.Controllers
 
 		public ActionResult Edit(int id)
 		{
-			//var movie = new Movie { ReleaseDate = DateTime.Now };
-			var movie = db.Movies.SingleOrDefault(c => c.Id == id);
+			var movie = db.Movies.SingleOrDefault(m => m.Id == id);
 
 			if (movie == null)
 				return HttpNotFound();
 
 			var viewModel = new MovieFormViewModel(movie)
 			{
-				//Movie = movie,
 				Genres = db.Genres.ToList()
 			};
 
