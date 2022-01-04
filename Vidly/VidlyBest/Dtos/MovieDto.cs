@@ -21,6 +21,8 @@ namespace VidlyBest.Dtos
 
         public DateTime ReleaseDate { get; set; }
 
+        public GenreDto Genre { get; set; }
+
         [Range(1, 20)]
         public byte NumberInStock { get; set; }
     }

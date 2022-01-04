@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using VidlyBest.Dtos;
 using VidlyBest.Models;
 using System.Web.Http;
+using System.Data.Entity;
 using AutoMapper;
 
 
@@ -16,9 +17,14 @@ namespace VidlyBest.Controllers.Api
         private MyDbContext db = new MyDbContext();
 
 
-        public IHttpActionResult GetMovies()
+        public IEnumerable<MovieDto> GetMovies()
         {
-            return Ok(db.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>));
+            return db.Movies
+                .Include(m => m.Genre)
+                .ToList()
+                .Select(Mapper.Map<Movie, MovieDto>);
+
+            // return Ok(movieDtos);
         }
 
         public IHttpActionResult GetMovie(int id)
