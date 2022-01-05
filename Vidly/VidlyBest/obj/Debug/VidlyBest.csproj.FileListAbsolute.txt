@@ -340,3 +340,7 @@ C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\System.Web.Http.xml
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\System.Web.Http.WebHost.xml
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\AutoMapper.dll
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\AutoMapper.xml
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.users.resources
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.SeedUsers.resources
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.AddDrivingLicenseToApplicationUser.resources
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.AddRegistrationFields.resources
