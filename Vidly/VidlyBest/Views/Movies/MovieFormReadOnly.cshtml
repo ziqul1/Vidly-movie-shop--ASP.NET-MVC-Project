@@ -1,0 +1,54 @@
+﻿@model VidlyBest.ViewModels.MovieFormViewModel
+
+@{
+    ViewBag.Title = "Movie Details";
+}
+
+<h2>Movie Details</h2>
+<br />
+
+@using (Html.BeginForm("Index", "Movies"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name) :
+        @*@Html.TextBoxFor(m => m.Name, new { @class = "form-control" })*@
+        @Html.DisplayFor(m => m.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateAdded) :
+        @*@Html.TextBoxFor(m => m.ReleaseDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })*@
+        @*@Html.DisplayFor(m => m.DateAdded, "{0:yyyy-MM-dd}")*@
+        @Model.DateAdded.Value.ToString("dd/MM/yyyy")
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ReleaseDate) :
+        @*@Html.TextBoxFor(m => m.ReleaseDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })*@
+        @*@Html.DisplayFor(m => m.ReleaseDate, "{0:yyyy-MM-dd}")*@
+        @Model.ReleaseDate.Value.ToString("dd/MM/yyyy")
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.GenreId) :
+        @*@Html.DropDownListFor(m => m.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })*@
+        @Model.Movie.Genre.Name
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.NumberInStock) :
+        @*@Html.TextBoxFor(m => m.NumberInStock, new { @class = "form-control" })*@
+        @Html.DisplayFor(m => m.NumberInStock)
+    </div>
+
+
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-default"> Back </button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

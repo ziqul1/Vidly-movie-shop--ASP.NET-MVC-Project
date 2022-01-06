@@ -13,7 +13,7 @@ namespace VidlyBest.ViewModels
 	{
 		public IEnumerable<Genre> Genres { get; set; }
 
-		//public Movie Movie { get; set; }
+		public Movie Movie { get; set; }
 
 		public int? Id { get; set; }
 
@@ -28,6 +28,10 @@ namespace VidlyBest.ViewModels
 		[Display(Name = "Release Date")]
 		[Required]
 		public DateTime? ReleaseDate { get; set; }
+
+		[Display(Name = "Date Added")]
+		[Required]
+		public DateTime? DateAdded { get; set; }
 
 		[Required]
 		[Range(1, 20)]
@@ -52,8 +56,10 @@ namespace VidlyBest.ViewModels
 			Id = movie.Id;
 			Name = movie.Name;
 			ReleaseDate = movie.ReleaseDate;
+			DateAdded = movie.DateAdded;
 			NumberInStock = movie.NumberInStock;
 			GenreId = movie.GenreId;
+			Movie = movie; 
 		}
 	}
 }

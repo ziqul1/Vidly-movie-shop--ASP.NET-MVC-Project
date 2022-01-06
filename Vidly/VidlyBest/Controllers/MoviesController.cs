@@ -8,16 +8,20 @@ using VidlyBest.ViewModels;
 
 namespace VidlyBest.Controllers
 {
+	[Authorize]
 	public class MoviesController : Controller
 	{
 		private MyDbContext db = new MyDbContext();
 
 		public ViewResult Index()
 		{
-			if (User.IsInRole(RoleName.CanManageMovies))
-				return View("List");
+			var movies = db.Movies.Include(m => m.Genre).ToList();
 
-			return View("ReadOnlyList");
+			if (User.IsInRole(RoleName.CanManageMovies))
+				return View("List", movies);
+
+			return View("ReadOnlyList", movies);
+
 		}
 
 
@@ -80,7 +84,7 @@ namespace VidlyBest.Controllers
 			return RedirectToAction("Index", "Movies");
 		}
 
-		[Authorize(Roles = RoleName.CanManageMovies)]
+		//[Authorize(Roles = RoleName.CanManageMovies)]
 		public ActionResult Edit(int id)
 		{
 			var movie = db.Movies.SingleOrDefault(m => m.Id == id);
@@ -94,6 +98,63 @@ namespace VidlyBest.Controllers
 			};
 
 			return View("MovieForm", viewModel);
+		}
+
+		public ActionResult DetailsReadOnly(int id)
+		{
+			var movie = db.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
+
+
+			if (movie == null)
+				return HttpNotFound();
+
+			var viewModel = new MovieFormViewModel(movie)
+			{
+				Genres = db.Genres.ToList()
+			};
+
+			return View("MovieFormReadOnly", viewModel);
+		}
+
+		public ActionResult Delete(int id)
+		{
+			var movie = db.Movies.SingleOrDefault(c => c.Id == id);
+
+			if (movie == null)
+				return HttpNotFound();
+
+			var viewModel = new MovieFormViewModel(movie)
+			{
+				Genres = db.Genres.ToList()
+			};
+
+			return View("Delete", viewModel);
+		}
+
+		[HttpPost]
+		public ActionResult Delete2(Movie movie)
+		{
+			bool oldValidateOnSaveEnabled = db.Configuration.ValidateOnSaveEnabled;
+
+			try
+			{
+				db.Configuration.ValidateOnSaveEnabled = false;
+
+				var movieTemp = movie;
+
+				db.Movies.Attach(movieTemp);
+				db.Entry(movieTemp).State = EntityState.Deleted;
+				db.SaveChanges();
+			}
+			finally
+			{
+				db.Configuration.ValidateOnSaveEnabled = oldValidateOnSaveEnabled;
+			}
+
+			//db.Customers.Remove(customer);
+			//db.SaveChanges();
+
+			return RedirectToAction("Index", "Movies");
 		}
 
 	}

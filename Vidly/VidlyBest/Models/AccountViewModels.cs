@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace VidlyBest.Models
@@ -66,14 +67,31 @@ namespace VidlyBest.Models
 	{
 		// tu stworzę username do pobrania, date urodzenia, phone number(pamietac ze juz istnieje taka kolumna
 		// dane do wysyłki czyli ulica jako string, oddzielnie post code jako string, oddzielnie miasto jako string
-		[Required]
-		[Display(Name = "Driving License")]
-		public string DrivingLicense { get; set; }
+
+		//public string Id { get; set; }
 
 		[Required]
 		[Display(Name = "Phone Number")]
 		public string  PhoneNumber { get; set; }
 
+		[Required]
+		[StringLength(255)]
+		public string Name { get; set; }
+
+		[Required]
+		public DateTime? Birthdate { get; set; }
+
+		[Required]
+		[StringLength(255)]
+		public string Street { get; set; }
+
+		[Required]
+		[StringLength(255)]
+		public string PostCode { get; set; }
+
+		[Required]
+		[StringLength(255)]
+		public string City { get; set; }
 
 		[Required]
 		[EmailAddress]
