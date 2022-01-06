@@ -48,6 +48,12 @@
     <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.SignalR.Core.2.3.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.SignalR.SystemWeb.2.3.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -188,6 +194,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\CounterHub.cs" />
     <Compile Include="Migrations\202111301337069_InitialModel.cs" />
     <Compile Include="Migrations\202111301337069_InitialModel.Designer.cs">
       <DependentUpon>202111301337069_InitialModel.cs</DependentUpon>
@@ -219,6 +226,10 @@
     <Compile Include="Migrations\202201051517092_AddUserData.cs" />
     <Compile Include="Migrations\202201051517092_AddUserData.Designer.cs">
       <DependentUpon>202201051517092_AddUserData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201061709460_AddDescriptionToMovie.cs" />
+    <Compile Include="Migrations\202201061709460_AddDescriptionToMovie.Designer.cs">
+      <DependentUpon>202201061709460_AddDescriptionToMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -434,6 +445,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.3.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.3.0.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -524,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201051517092_AddUserData.resx">
       <DependentUpon>202201051517092_AddUserData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201061709460_AddDescriptionToMovie.resx">
+      <DependentUpon>202201061709460_AddDescriptionToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -16,9 +16,17 @@ namespace VidlyBest.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public ManageController()
+  //      private readonly UserManager<ApplicationUser> _userManager1;
+
+		//public ManageController(UserManager<ApplicationUser> userManager1)
+		//{
+		//	_userManager1 = userManager1;
+		//}
+
+		public ManageController()
         {
         }
+
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {

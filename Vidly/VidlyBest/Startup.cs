@@ -8,6 +8,8 @@ namespace VidlyBest
     {
         public void Configuration(IAppBuilder app)
         {
+            app.MapSignalR();
+
             ConfigureAuth(app);
         }
     }

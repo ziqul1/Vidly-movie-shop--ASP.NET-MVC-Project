@@ -41,6 +41,13 @@
         @Html.DisplayFor(m => m.NumberInStock)
     </div>
 
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description):
+        
+        @Html.DisplayFor(m => m.Description)
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+
 
     @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()

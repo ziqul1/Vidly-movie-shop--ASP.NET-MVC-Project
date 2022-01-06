@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using VidlyBest.Controllers
+@using System.Web.Http
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -12,11 +15,37 @@
     @Html.Partial("_NavBar")
     <div class="container body-content">
         @RenderBody()
+
+
+        <div class="row">
+            <br />
+            Number of Online Users: <strong id="counter"></strong>
+
+            <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+            <script src="@Url.Content("~/Scripts/jquery.signalR-2.2.0.min.js")"></script>
+            <script src="@Url.Content("~/signalr/hubs")"></script>
+            <script>
+                $(function () {
+                    var counterHub = $.connection.counterHub;
+
+                    $.connection.hub.start().done(function () {
+
+                    });
+
+                    counterHub.client.UpdateCount = function (count) {
+                        $("#counter").text(count);
+                    }
+                });
+            </script>
+        </div>
+
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Vidly</p>
         </footer>
     </div>
+
+
 
     @Scripts.Render("~/bundles/lib")
     @RenderSection("scripts", required: false)
