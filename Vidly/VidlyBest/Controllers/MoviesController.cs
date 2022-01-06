@@ -77,6 +77,7 @@ namespace VidlyBest.Controllers
 				movieInDb.ReleaseDate = movie.ReleaseDate;
 				movieInDb.GenreId = movie.GenreId;
 				movieInDb.NumberInStock = movie.NumberInStock;
+				movieInDb.Description = movie.Description;
 			}
 
 			db.SaveChanges();

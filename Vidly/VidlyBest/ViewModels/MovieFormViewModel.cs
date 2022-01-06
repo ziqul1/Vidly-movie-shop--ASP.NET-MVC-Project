@@ -38,6 +38,10 @@ namespace VidlyBest.ViewModels
 		[Display(Name = "Number in Stock")]
 		public byte? NumberInStock { get; set; }
 
+		[Required]
+		[StringLength(int.MaxValue)]
+		public string Description { get; set; }
+
 		public string Title
 		{
 			get
@@ -59,7 +63,8 @@ namespace VidlyBest.ViewModels
 			DateAdded = movie.DateAdded;
 			NumberInStock = movie.NumberInStock;
 			GenreId = movie.GenreId;
-			Movie = movie; 
+			Description = movie.Description;
+			Movie = movie;
 		}
 	}
 }

@@ -29,5 +29,9 @@ namespace VidlyBest.Models
         [Range(1,20)]
         [Display(Name="Number in Stock")]
         public byte NumberInStock { get; set; }
+
+        [Required]
+        [StringLength(int.MaxValue)]
+        public string Description { get; set; }
     }
 }
