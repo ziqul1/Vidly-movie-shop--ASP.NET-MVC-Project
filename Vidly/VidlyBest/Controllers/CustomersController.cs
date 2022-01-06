@@ -10,13 +10,20 @@ using VidlyBest.ViewModels;
 
 namespace VidlyBest.Controllers
 {
+	[Authorize]
 	public class CustomersController : Controller
 	{
 		private MyDbContext db = new MyDbContext();
 
-		public ViewResult Index()
+		public ActionResult Index()
 		{
-			return View();
+			if (User.IsInRole(RoleName.CanManageMovies))
+			{
+				var customers = db.Customers.Include(c => c.MembershipType).ToList();
+				return View(customers);
+			}
+
+			return RedirectToAction("Index", "Info");
 		}
 
 		public ActionResult Details(int id)
@@ -87,6 +94,48 @@ namespace VidlyBest.Controllers
 			};
 
 			return View("CustomerForm", viewModel);
+		}
+
+		public ActionResult Delete(int id)
+		{
+			var customer = db.Customers.SingleOrDefault(c => c.Id == id);
+
+			if (customer == null)
+				return HttpNotFound();
+
+			var viewModel = new CustomerFormViewModel
+			{
+				Customer = customer,
+				MembershipTypes = db.MembershipTypes.ToList()
+			};
+
+			return View("Delete", viewModel);
+		}
+
+		[HttpPost]
+		public ActionResult Delete2(Customer customer)
+		{
+			bool oldValidateOnSaveEnabled = db.Configuration.ValidateOnSaveEnabled;
+
+			try
+			{
+				db.Configuration.ValidateOnSaveEnabled = false;
+
+				var customerTemp = customer;
+
+				db.Customers.Attach(customerTemp);
+				db.Entry(customerTemp).State = EntityState.Deleted;
+				db.SaveChanges();
+			}
+			finally
+			{
+				db.Configuration.ValidateOnSaveEnabled = oldValidateOnSaveEnabled;
+			}
+
+			//db.Customers.Remove(customer);
+			//db.SaveChanges();
+
+			return RedirectToAction("Index", "Customers");
 		}
 	}
 }

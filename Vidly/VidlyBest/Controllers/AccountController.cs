@@ -154,9 +154,15 @@ namespace VidlyBest.Controllers
             {
                 var user = new ApplicationUser 
                 { 
+                    //Id = model.Id,
                     UserName = model.Email, 
                     Email = model.Email,
-                    DrivingLicense = model.DrivingLicense
+                    PhoneNumber = model.PhoneNumber,
+                    Birthdate = model.Birthdate,
+                    Street = model.Street,
+                    PostCode = model.PostCode,
+                    City = model.City,
+                    Name = model.Name
                 };
 
                 var result = await UserManager.CreateAsync(user, model.Password);

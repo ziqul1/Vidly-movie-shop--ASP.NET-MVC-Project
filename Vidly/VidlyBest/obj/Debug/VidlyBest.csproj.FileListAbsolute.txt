@@ -344,3 +344,4 @@ C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.SeedUsers.resources
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.AddDrivingLicenseToApplicationUser.resources
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.AddRegistrationFields.resources
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.AddUserData.resources

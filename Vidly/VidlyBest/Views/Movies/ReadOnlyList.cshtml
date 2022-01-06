@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<VidlyBest.Models.Movie>
 
-
-@{ ViewBag.Title = "Movies";
-    Layout = "~/Views/Shared/_Layout.cshtml"; }
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <h2>Movies</h2>
 
 @*@using (Html.BeginForm("Create", "Movies"))
-{
-    <button type="submit" class="btn btn-default"> New Movie </button>
-}*@
+    {
+        <button type="submit" class="btn btn-default"> New Movie </button>
+    }*@
 
 <br />
 @*
@@ -20,44 +21,24 @@
 
 *@
 
-<table id="movies" class="table table-bordered table-hover">
+<table class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Movie</th>
             <th>Genre</th>
+            <th>Cart</th>
         </tr>
     </thead>
     <tbody>
-        @*@foreach (var movie in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
-                    <td>@movie.Genre.Name</td>
-                </tr>
-            }*@
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(movie.Name, "DetailsReadOnly", "Movies", new { id = movie.Id }, null)</td>
+                <td>@movie.Genre.Name</td>
+                <td></td>
+            </tr>
+        }
     </tbody>
 </table>
-
-@section scripts
-{
-    <script>
-        $(document).ready(function () {
-            var table = $("#movies").DataTable({
-                ajax: {
-                    url: "/api/movies",
-                    dataSrc: ""
-                },
-                columns: [
-                    {
-                        data: "name"
-                    },
-                    {
-                        data: "genre.name"
-                    }
-                ]
-            });
-        });
-    </script>
-}
 
 
