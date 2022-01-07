@@ -363,3 +363,6 @@ C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\ru\Microsoft.AspNet.Signal
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\tr\Microsoft.AspNet.SignalR.SystemWeb.resources.dll
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\zh-Hans\Microsoft.AspNet.SignalR.SystemWeb.resources.dll
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\zh-Hant\Microsoft.AspNet.SignalR.SystemWeb.resources.dll
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.AddVisitors.resources
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.AddVisitors1.resources
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.AddNumberColumn.resources

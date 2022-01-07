@@ -230,6 +230,18 @@
     <Compile Include="Migrations\202201061709460_AddDescriptionToMovie.Designer.cs">
       <DependentUpon>202201061709460_AddDescriptionToMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201071249313_AddVisitors.cs" />
+    <Compile Include="Migrations\202201071249313_AddVisitors.Designer.cs">
+      <DependentUpon>202201071249313_AddVisitors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201071308298_AddVisitors1.cs" />
+    <Compile Include="Migrations\202201071308298_AddVisitors1.Designer.cs">
+      <DependentUpon>202201071308298_AddVisitors1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201071334536_AddNumberColumn.cs" />
+    <Compile Include="Migrations\202201071334536_AddNumberColumn.Designer.cs">
+      <DependentUpon>202201071334536_AddNumberColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -241,6 +253,7 @@
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\RoleName.cs" />
+    <Compile Include="Models\VisitorNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
@@ -539,6 +552,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201061709460_AddDescriptionToMovie.resx">
       <DependentUpon>202201061709460_AddDescriptionToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201071249313_AddVisitors.resx">
+      <DependentUpon>202201071249313_AddVisitors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201071308298_AddVisitors1.resx">
+      <DependentUpon>202201071308298_AddVisitors1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201071334536_AddNumberColumn.resx">
+      <DependentUpon>202201071334536_AddNumberColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

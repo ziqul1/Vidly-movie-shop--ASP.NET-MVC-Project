@@ -18,5 +18,7 @@ namespace VidlyBest.Models
 
 		public DbSet<Genre> Genres { get; set; }
 
+		public DbSet<VisitorNumber> Visitors { get; set; }
+
 	}
 }
