@@ -14,7 +14,9 @@
 <br />
 @using (Html.BeginForm("Search", "Movies", FormMethod.Get))
 {
-    @Html.TextBox("searching") <input type="submit" value="Search" />
+    @Html.TextBox("searching")
+
+    <button type="submit" class="btn btn-default btn-sm">Search</button>
 }
 
 <br />
