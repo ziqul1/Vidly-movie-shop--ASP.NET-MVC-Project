@@ -17,31 +17,10 @@
         @RenderBody()
 
 
-        <div class="row">
-            <br />
-            Number of Online Users: <strong id="counter"></strong>
-
-            <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
-            <script src="@Url.Content("~/Scripts/jquery.signalR-2.2.0.min.js")"></script>
-            <script src="@Url.Content("~/signalr/hubs")"></script>
-            <script>
-                $(function () {
-                    var counterHub = $.connection.counterHub;
-
-                    $.connection.hub.start().done(function () {
-
-                    });
-
-                    counterHub.client.UpdateCount = function (count) {
-                        $("#counter").text(count);
-                    }
-                });
-            </script>
-        </div>
-
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Vidly</p>
+            <p>&copy; @DateTime.Now.Year - Vidly &nbsp; &nbsp; &nbsp; <b>Total Visitors:</b> @ApplicationInstance.Application["Totaluser"]</p>
+            &nbsp;
         </footer>
     </div>
 

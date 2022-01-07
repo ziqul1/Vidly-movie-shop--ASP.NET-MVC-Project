@@ -15,11 +15,20 @@ namespace VidlyBest
     {
         protected void Application_Start(Object sender, EventArgs e)
         {
+            Application["Totaluser"] = 1;
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Session_Start()
+        {
+            Application.Lock();
+            Application["Totaluser"] = (int)Application["Totaluser"] + 1;
+            Application.UnLock();
+        }
+
 
     }
 }
