@@ -194,7 +194,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Hubs\CounterHub.cs" />
     <Compile Include="Migrations\202111301337069_InitialModel.cs" />
     <Compile Include="Migrations\202111301337069_InitialModel.Designer.cs">
       <DependentUpon>202111301337069_InitialModel.cs</DependentUpon>
