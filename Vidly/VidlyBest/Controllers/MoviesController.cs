@@ -24,6 +24,16 @@ namespace VidlyBest.Controllers
 
 		}
 
+		public ActionResult Search(string searching)
+		{
+			var movies = db.Movies.Include(m => m.Genre).ToList().Where(m => m.Name.Contains(searching) || searching == null).ToList();
+
+			if (User.IsInRole(RoleName.CanManageMovies))
+				return View("List", movies);
+
+			return View("ReadOnlyList", movies);
+		}
+
 
 		public ActionResult Details(int id)
 		{

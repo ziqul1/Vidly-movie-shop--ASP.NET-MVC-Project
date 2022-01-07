@@ -13,6 +13,8 @@ namespace VidlyBest.ViewModels
 	{
 		public IEnumerable<Genre> Genres { get; set; }
 
+		public IEnumerable<Movie> Movies { get; set; }
+
 		public Movie Movie { get; set; }
 
 		public int? Id { get; set; }

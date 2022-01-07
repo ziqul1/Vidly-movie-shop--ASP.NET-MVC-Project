@@ -12,6 +12,12 @@
 }
 
 <br />
+@using (Html.BeginForm("Search", "Movies", FormMethod.Get))
+{
+    @Html.TextBox("searching") <input type="submit" value="Search" />
+}
+
+<br />
 @*
     To samo co wyzej z Html Begin form ale w inny sposób, tamten wyzej dla mnie bardziej pasuje
     ale moze kiedys mi sie przyda ten co nizej
@@ -32,16 +38,15 @@
     <tbody>
         @foreach (var movie in Model)
         {
-        <tr>
-            <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
-            <td>@movie.Genre.Name</td>
-            <td>
-                @Html.ActionLink("Delete", "Delete", "Movies", new { id = movie.Id }, null)
-            </td>
-            <td>
-
-            </td>
-        </tr>
+            <tr>
+                <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
+                <td>@movie.Genre.Name</td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", "Movies", new { id = movie.Id }, null)
+                </td>
+                <td>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
