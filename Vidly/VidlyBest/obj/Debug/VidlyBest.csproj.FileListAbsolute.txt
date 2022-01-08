@@ -366,3 +366,4 @@ C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\bin\zh-Hant\Microsoft.AspNet.S
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.AddVisitors.resources
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.AddVisitors1.resources
 C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.AddNumberColumn.resources
+C:\Users\macie\Desktop\MVC5Course\Vidly\VidlyBest\obj\Debug\VidlyBest.Migrations.Repair.resources

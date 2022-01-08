@@ -186,6 +186,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AspNetUsersController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
@@ -242,8 +243,13 @@
     <Compile Include="Migrations\202201071334536_AddNumberColumn.Designer.cs">
       <DependentUpon>202201071334536_AddNumberColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201081450426_Repair.cs" />
+    <Compile Include="Migrations\202201081450426_Repair.Designer.cs">
+      <DependentUpon>202201081450426_Repair.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetUser.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -510,6 +516,8 @@
     <Content Include="Views\Movies\MovieFormReadOnly.cshtml" />
     <Content Include="Views\Customers\Delete.cshtml" />
     <Content Include="Views\Movies\Delete.cshtml" />
+    <Content Include="Views\AspNetUsers\Index.cshtml" />
+    <Content Include="Views\AspNetUsers\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -561,6 +569,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201071334536_AddNumberColumn.resx">
       <DependentUpon>202201071334536_AddNumberColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201081450426_Repair.resx">
+      <DependentUpon>202201081450426_Repair.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
