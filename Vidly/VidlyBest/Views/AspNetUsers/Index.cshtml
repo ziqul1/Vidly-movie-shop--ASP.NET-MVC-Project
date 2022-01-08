@@ -28,7 +28,7 @@
         @foreach (var user in Model)
         {
             <tr>
-                <td>@user.Email</td>
+                <td>@Html.ActionLink(user.Email, "Edit", "AspNetUsers", new { id = user.Id }, null)</td>
                 <td>@user.Name</td>
                 <td>@Html.ActionLink("Delete", "Delete", "AspNetUsers", new { id = user.Id }, null)</td>
             </tr>
