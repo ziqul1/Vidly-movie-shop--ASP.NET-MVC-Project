@@ -1,0 +1,67 @@
+﻿@model VidlyBest.ViewModels.AspNetUserFormViewModel
+@{
+    ViewBag.Title = "AspNetUserForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit User</h2>
+
+@using (Html.BeginForm("Save", "AspNetUsers"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AspNetUser.Email)
+        @Html.TextBoxFor(m => m.AspNetUser.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AspNetUser.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AspNetUser.Name)
+        @Html.TextBoxFor(m => m.AspNetUser.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AspNetUser.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AspNetUser.BirthDate)
+        @Html.TextBoxFor(m => m.AspNetUser.BirthDate, "{0:yyyy-MM-dd}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AspNetUser.BirthDate)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AspNetUser.PhoneNumber)
+        @Html.TextBoxFor(m => m.AspNetUser.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AspNetUser.PhoneNumber)
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AspNetUser.Street)
+        @Html.TextBoxFor(m => m.AspNetUser.Street, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AspNetUser.Street)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AspNetUser.PostCode)
+        @Html.TextBoxFor(m => m.AspNetUser.PostCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AspNetUser.PostCode)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AspNetUser.City)
+        @Html.TextBoxFor(m => m.AspNetUser.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.AspNetUser.City)
+    </div>
+
+    <br />
+
+    @Html.HiddenFor(m => m.AspNetUser.Id)
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-default">Save</button>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

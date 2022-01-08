@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VidlyBest.Models;
+using VidlyBest.ViewModels;
 
 namespace VidlyBest.Controllers
 {
@@ -30,6 +31,53 @@ namespace VidlyBest.Controllers
 			var users = db.AspNetUsers.ToList().Where(u => u.Email.Contains(searching) || searching == null).ToList();
 
 			return View("Index", users);
+		}
+
+		public ActionResult Edit(string id)
+		{
+			var user = db.AspNetUsers.SingleOrDefault(u => u.Id == id);
+
+			if (user == null)
+				return HttpNotFound();
+
+			var viewModel = new AspNetUserFormViewModel
+			{
+				AspNetUser = user
+			};
+
+			return View("AspNetUserForm", viewModel);
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult Save(AspNetUser aspNetUser)
+		{
+			if (!ModelState.IsValid)
+			{
+				var viewModel = new AspNetUserFormViewModel
+				{
+					AspNetUser = aspNetUser,
+				};
+
+				return View("AspNetUserForm", viewModel);
+			}
+
+			if (aspNetUser.Id != "")
+			{
+				var userInDb = db.AspNetUsers.Single(u => u.Id == aspNetUser.Id);
+
+				userInDb.Name = aspNetUser.Name;
+				userInDb.Email = aspNetUser.Email;
+				userInDb.BirthDate = aspNetUser.BirthDate;
+				userInDb.PhoneNumber = aspNetUser.PhoneNumber;
+				userInDb.Street = aspNetUser.Street;
+				userInDb.PostCode = aspNetUser.PostCode;
+				userInDb.City = aspNetUser.City;
+			}
+
+			db.SaveChanges();
+
+			return RedirectToAction("Index", "AspNetUsers");
 		}
 
 
