@@ -43,10 +43,12 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Description):
-        
-        @Html.DisplayFor(m => m.Description)
+
+        @Model.Movie.Description.ToString()
         @Html.ValidationMessageFor(m => m.Description)
     </div>
+
+    
 
 
     @Html.HiddenFor(m => m.Id)
