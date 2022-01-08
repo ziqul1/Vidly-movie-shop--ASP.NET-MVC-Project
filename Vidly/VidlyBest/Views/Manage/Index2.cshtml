@@ -1,0 +1,15 @@
+﻿@model VidlyBest.Models.AddPhoneNumberViewModel
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Manage";
+}
+
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Index2", "Manage"))
+{
+    <div class="form-group">
+        @Model.Number
+    </div>
+}
