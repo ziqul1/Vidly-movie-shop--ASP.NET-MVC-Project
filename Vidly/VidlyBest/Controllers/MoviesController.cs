@@ -88,6 +88,7 @@ namespace VidlyBest.Controllers
 				movieInDb.GenreId = movie.GenreId;
 				movieInDb.NumberInStock = movie.NumberInStock;
 				movieInDb.Description = movie.Description;
+				movieInDb.Price = movie.Price;
 			}
 
 			db.SaveChanges();

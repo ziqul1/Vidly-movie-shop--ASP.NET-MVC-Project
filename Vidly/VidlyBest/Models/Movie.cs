@@ -33,5 +33,8 @@ namespace VidlyBest.Models
         [Required]
         [StringLength(int.MaxValue)]
         public string Description { get; set; }
-    }
+
+        [Required]
+		public int Price { get; set; }
+	}
 }

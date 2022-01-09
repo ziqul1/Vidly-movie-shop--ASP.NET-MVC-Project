@@ -4,7 +4,7 @@
     ViewBag.Title = "Movie Details";
 }
 
-<h2>Movie Details</h2>
+<h2><b>Movie Details</b></h2>
 <br />
 
 @using (Html.BeginForm("Index", "Movies"))
@@ -42,13 +42,19 @@
     </div>
 
     <div class="form-group">
+        @Html.LabelFor(m => m.Price) :
+        @*@Html.TextBoxFor(m => m.NumberInStock, new { @class = "form-control" })*@
+        @Html.DisplayFor(m => m.Price) zł
+    </div>
+
+    <div class="form-group">
         @Html.LabelFor(m => m.Description):
 
         @Model.Movie.Description.ToString()
         @Html.ValidationMessageFor(m => m.Description)
     </div>
 
-    
+
 
 
     @Html.HiddenFor(m => m.Id)
