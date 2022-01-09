@@ -146,13 +146,29 @@ namespace VidlyBest.Controllers
 
 			db.SaveChanges();
 
-			return RedirectToAction("UserPanel", "AspNetUsers");
+			var user = db.AspNetUsers.SingleOrDefault(u => u.Id == aspNetUser.Id);
+			
+			var viewModel2 = new AspNetUserFormViewModel
+			{
+				AspNetUser = user,
+			};
+
+			return View("UserPanel", viewModel2);
+			//return RedirectToAction("UserPanel", "AspNetUsers", aspNetUser.Id);
+
 		}
 
 
-		public ActionResult UserPanel()
+		public ActionResult UserPanel(string id)
 		{
-			return View();
+			var user = db.AspNetUsers.SingleOrDefault(u => u.Id == id);
+
+			var viewModel = new AspNetUserFormViewModel
+			{
+				AspNetUser = user,
+			};
+
+			return View("UserPanel", viewModel);
 		}
 	}
 }
