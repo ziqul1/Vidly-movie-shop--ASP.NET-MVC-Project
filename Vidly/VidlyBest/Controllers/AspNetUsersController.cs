@@ -116,5 +116,43 @@ namespace VidlyBest.Controllers
 
 			return RedirectToAction("Index", "AspNetUsers");
 		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult EditUserInPanel(AspNetUser aspNetUser)
+		{
+			if (!ModelState.IsValid)
+			{
+				var viewModel = new AspNetUserFormViewModel
+				{
+					AspNetUser = aspNetUser,
+				};
+
+				return View("AspNetUserForm", viewModel);
+			}
+
+			if (aspNetUser.Id != "")
+			{
+				var userInDb = db.AspNetUsers.Single(u => u.Id == aspNetUser.Id);
+
+				userInDb.Name = aspNetUser.Name;
+				userInDb.Email = aspNetUser.Email;
+				userInDb.BirthDate = aspNetUser.BirthDate;
+				userInDb.PhoneNumber = aspNetUser.PhoneNumber;
+				userInDb.Street = aspNetUser.Street;
+				userInDb.PostCode = aspNetUser.PostCode;
+				userInDb.City = aspNetUser.City;
+			}
+
+			db.SaveChanges();
+
+			return RedirectToAction("UserPanel", "AspNetUsers");
+		}
+
+
+		public ActionResult UserPanel()
+		{
+			return View();
+		}
 	}
 }
