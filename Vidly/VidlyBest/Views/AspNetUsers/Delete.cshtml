@@ -4,27 +4,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Are you sure you want do Delete this user?</h2>
-
-@using (Html.BeginForm("Index", "AspNetUsers"))
-{
-
-    @Html.HiddenFor(u => u.Id)
-    @Html.AntiForgeryToken()
-
-    <button type="submit" class="btn btn-default">No</button>
-}
- /
 <br />
-@using (Html.BeginForm("Delete2", "AspNetUsers"))
+<form method="post">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"><b>DELETE USER</b></h5>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to Delete this user? - <b>@Model.Email</b>
+        </div>
+
+    </div>
+</form>
+
+<br />
+<input type="button" class="btn btn-primary" value="No" onclick="location.href='@Url.Action("Index", "AspNetUsers")'" />
+
+@using (Html.BeginForm("Delete2", "AspNetUsers", FormMethod.Post, new { style = "display:inline;" }))
 {
 
-
-    @Html.HiddenFor(u => u.Id)
+    @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
 
     <button type="submit" class="btn btn-default">Yes</button>
 }
+
 
 @section scripts
 {
