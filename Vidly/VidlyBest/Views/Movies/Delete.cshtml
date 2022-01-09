@@ -13,37 +13,21 @@
         <div class="modal-body">
             Are you sure you want to Delete this movie? - <b>@Model.Movie.Name</b>
         </div>
-        <div class="modal-footer">
-            <input type="button" class="btn btn-primary" value="No" onclick="location.href='@Url.Action("Index", "Movies")'" />
-
-
-            @using (Html.BeginForm("Delete2", "Movies"))
-            {
-
-                @Html.HiddenFor(m => m.Id)
-                @Html.AntiForgeryToken()
-
-                <button type="submit" class="btn btn-default">Yes2</button>
-            }
-
-            @*<br />
-                <input id="@Model.Movie.Id" type="button" class="btn btn-default" value="Yes" onclick="location.href='@Url.Action("Delete2", "Movies")'" />*@
-        </div>
+       
     </div>
 </form>
 
+<br />
 <input type="button" class="btn btn-primary" value="No" onclick="location.href='@Url.Action("Index", "Movies")'" />
 
-
-@using (Html.BeginForm("Delete2", "Movies"))
+@using (Html.BeginForm("Delete2", "Movies", FormMethod.Post, new { style = "display:inline;" }) )
 {
 
     @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
 
-    <input type="button" class="btn btn-default" value="Yes2" />
+    <button type="submit" class="btn btn-default">Yes</button>
 }
-
 
 @*@using (Html.BeginForm("Index", "Movies"))
     {
