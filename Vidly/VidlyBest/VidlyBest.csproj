@@ -520,6 +520,7 @@
     <Content Include="Views\AspNetUsers\Index.cshtml" />
     <Content Include="Views\AspNetUsers\Delete.cshtml" />
     <Content Include="Views\AspNetUsers\AspNetUserForm.cshtml" />
+    <Content Include="Views\AspNetUsers\UserPanel.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

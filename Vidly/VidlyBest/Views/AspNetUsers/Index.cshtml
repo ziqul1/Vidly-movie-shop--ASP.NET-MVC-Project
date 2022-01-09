@@ -4,12 +4,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Users</h2>
-
+<div class="text-center">
+    <h1><b>Users</b></h1>
+</div>
 
 @using (Html.BeginForm("Search", "AspNetUsers", FormMethod.Get))
 {
+    <h4>Here you can search for a user</h4>
+
     @Html.TextBox("searching")
+
+    <a>&nbsp;</a>
 
     <button type="submit" class="btn btn-default btn-sm">Search</button>
 }

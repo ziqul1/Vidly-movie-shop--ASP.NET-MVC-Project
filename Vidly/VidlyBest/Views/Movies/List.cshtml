@@ -4,17 +4,23 @@
 @{ ViewBag.Title = "Movies";
     Layout = "~/Views/Shared/_Layout.cshtml"; }
 
-<h2>Movies</h2>
-
+<div class="text-center">
+    <h1><b>Movies</b></h1>
+</div>
+<br />
 @using (Html.BeginForm("Create", "Movies"))
 {
-    <button type="submit" class="btn btn-default"> New Movie </button>
+    <button type="submit" class="btn btn-default  btn-block"> New Movie </button>
 }
 
 <br />
 @using (Html.BeginForm("Search", "Movies", FormMethod.Get))
 {
+    <h4>Here you can search for a movie</h4>
+
     @Html.TextBox("searching")
+
+    <a>&nbsp;</a>
 
     <button type="submit" class="btn btn-default btn-sm">Search</button>
 }
