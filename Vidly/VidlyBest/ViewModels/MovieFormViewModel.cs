@@ -44,6 +44,9 @@ namespace VidlyBest.ViewModels
 		[StringLength(int.MaxValue)]
 		public string Description { get; set; }
 
+		[Required]
+		public int Price { get; set; }
+
 		public string Title
 		{
 			get
@@ -67,6 +70,7 @@ namespace VidlyBest.ViewModels
 			GenreId = movie.GenreId;
 			Description = movie.Description;
 			Movie = movie;
+			Price = movie.Price;
 		}
 	}
 }

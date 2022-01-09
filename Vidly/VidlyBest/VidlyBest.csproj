@@ -247,6 +247,10 @@
     <Compile Include="Migrations\202201081450426_Repair.Designer.cs">
       <DependentUpon>202201081450426_Repair.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201091651360_AddPriceToMovieTable.cs" />
+    <Compile Include="Migrations\202201091651360_AddPriceToMovieTable.Designer.cs">
+      <DependentUpon>202201091651360_AddPriceToMovieTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetUser.cs" />
@@ -575,6 +579,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201081450426_Repair.resx">
       <DependentUpon>202201081450426_Repair.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201091651360_AddPriceToMovieTable.resx">
+      <DependentUpon>202201091651360_AddPriceToMovieTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
