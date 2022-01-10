@@ -1,0 +1,28 @@
+﻿@model IEnumerable<VidlyBest.Models.Order>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Orders</h2>
+
+<br />
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>OrderID</th>
+            <th>Ordered Products</th>
+            <th>User Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.Products</td>
+                <td>@order.UserData</td>
+            </tr>
+        }
+    </tbody>
+</table>

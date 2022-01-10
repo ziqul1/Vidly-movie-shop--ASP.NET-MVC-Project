@@ -192,6 +192,7 @@
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -251,6 +252,10 @@
     <Compile Include="Migrations\202201091651360_AddPriceToMovieTable.Designer.cs">
       <DependentUpon>202201091651360_AddPriceToMovieTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201101926241_AddOrders.cs" />
+    <Compile Include="Migrations\202201101926241_AddOrders.Designer.cs">
+      <DependentUpon>202201101926241_AddOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetUser.cs" />
@@ -262,6 +267,7 @@
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MyDbContext.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\VisitorNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -525,6 +531,7 @@
     <Content Include="Views\AspNetUsers\Delete.cshtml" />
     <Content Include="Views\AspNetUsers\AspNetUserForm.cshtml" />
     <Content Include="Views\AspNetUsers\UserPanel.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -582,6 +589,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201091651360_AddPriceToMovieTable.resx">
       <DependentUpon>202201091651360_AddPriceToMovieTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201101926241_AddOrders.resx">
+      <DependentUpon>202201101926241_AddOrders.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
