@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<VidlyBest.Models.Movie>
 
+
 @{
     ViewBag.Title = "Movies";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -69,7 +70,7 @@
                         <p style="margin-bottom:0;">&nbsp;|</p>
 
 
-                        <a class="undecorated" onclick="location.href='@Url.Action("Delete", "Movies", new { id = movie.Id })'" asp-route-id="@movie.Id" asp-route-name="@movie.Name">
+                        <a class="undecorated" onclick="location.href='@Url.Action("AddTo Cart", "ShoppingCart", new { id = movie.Id })'" asp-route-id="@movie.Id" asp-route-name="@movie.Name">
                             <div style="display:flex;cursor:pointer;margin-left:10px">
                                 <p style="margin-bottom: 0; color: rgb(65,105,225)">Add To Cart</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="20" height="20" viewBox="0 0 256 256" xml:space="preserve">
