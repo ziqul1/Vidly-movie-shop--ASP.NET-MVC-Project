@@ -22,5 +22,7 @@ namespace VidlyBest.Models
 
 		public DbSet<AspNetUser> AspNetUsers { get; set; }
 
+		public DbSet<Order> Orders { get; set; }
+
 	}
 }
