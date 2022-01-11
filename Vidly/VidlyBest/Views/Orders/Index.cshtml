@@ -1,0 +1,40 @@
+﻿@model IEnumerable<VidlyBest.Models.Order>
+
+@{ ViewBag.Title = "Index";
+
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h2>Orders</h2>
+
+<br />
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>OrderID</th>
+            <th>User Email</th>
+            <th>Name</th>
+            <th>Street</th>
+            <th>Postal Code</th>
+            <th>City</th>
+            <th>Phone Number</th>
+            <th>Order Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+<tr>
+    <td class="text-center">@Html.ActionLink(order.OrderId.ToString(), "Details", "Orders", new { id = order.OrderId }, null)</td>
+    <td>@order.Username</td>
+    <td>@order.FirstName</td>
+    <td>@order.Address</td>
+    <td>@order.PostalCode</td>
+    <td>@order.City</td>
+    <td>@order.Phone</td>
+    <td>@order.OrderDate</td>
+</tr>
+}
+    </tbody>
+</table> 
+

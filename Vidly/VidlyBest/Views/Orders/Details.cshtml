@@ -1,0 +1,56 @@
+﻿@model IEnumerable<VidlyBest.Models.OrderDetail>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var order in Model)
+{
+    <h2>#@order.OrderId Order Details</h2>
+    break;
+}
+
+<br />
+
+@{ 
+    decimal total = 0;
+} 
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Movie ID</th>
+            <th>Movie Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.MovieId</td>
+                <td>@order.Movie.Name</td>
+                <td>@order.Quantity</td>
+                <td>@order.UnitPrice zł</td>
+                @{
+                    total += order.UnitPrice * order.Quantity;
+                 }
+            </tr>
+        }
+        @*<tr>
+            <td> &nbsp;</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>*@
+        <tr>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td>@total zł</td>
+        </tr>
+    </tbody>
+</table>
+
+<input type="button" class="btn btn-default" value="Back to Orders" onclick="location.href='@Url.Action("Index", "Orders")'" />

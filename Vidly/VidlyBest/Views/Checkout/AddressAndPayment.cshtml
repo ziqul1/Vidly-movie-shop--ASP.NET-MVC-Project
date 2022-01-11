@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNet.Identity
+@model VidlyBest.Models.Order
+@{
+    ViewBag.Title = "AddressAndPayment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<form method="post">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"><b>CHECKOUT CONFIRMATION</b></h5>
+        </div>
+        <div class="modal-body">
+            The information about shipping will be taken from your User Panel.
+            If you want to change shipping address, please click button "Go to My Profile" and change shipping address.
+        </div>
+    </div>
+</form>
+
+<br />
+<div class="text-right">
+    <input type="button" class="btn btn-primary" value="Go to My Profile" onclick="location.href='@Url.Action("UserPanel", "AspNetUsers", new { id = User.Identity.GetUserId() })'" />
+
+
+    @using (Html.BeginForm("AddressAndPayment", "Checkout", FormMethod.Post, new { style = "display:inline;" }))
+    {
+
+        @Html.HiddenFor(m => m.OrderId)
+
+        <button type="submit" class="btn btn-default">Submit order</button>
+    }
+</div>
