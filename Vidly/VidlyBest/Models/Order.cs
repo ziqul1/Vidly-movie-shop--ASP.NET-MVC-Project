@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace VidlyBest.Models
 {
-	public class Order
+    [Bind(Exclude = "OrderId")]
+    public class Order
 	{
         public int OrderId { get; set; }
         public string Username { get; set; }
