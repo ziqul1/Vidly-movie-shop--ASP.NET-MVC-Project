@@ -9,6 +9,9 @@
             <li>
                 @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "UserPanel", "AspNetUsers", new { id = User.Identity.GetUserId() }, null)
             </li>
+            <li>
+                @Html.ActionLink("Cart", "Index", "ShoppingCart")
+            </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
         </ul>
     }
