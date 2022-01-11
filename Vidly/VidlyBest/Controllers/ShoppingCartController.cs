@@ -46,7 +46,7 @@ namespace VidlyBest.Controllers
         }
         //
         // AJAX: /ShoppingCart/RemoveFromCart/5
-        [HttpPost]
+        
         public ActionResult RemoveFromCart(int id)
         {
             // Remove the item from the cart
@@ -69,7 +69,9 @@ namespace VidlyBest.Controllers
                 ItemCount = itemCount,
                 DeleteId = id
             };
-            return Json(results);
+
+            // return Json(results);
+            return RedirectToAction("Index", "ShoppingCart");
         }
         //
         // GET: /ShoppingCart/CartSummary
