@@ -541,6 +541,7 @@
     <Content Include="Views\AspNetUsers\AspNetUserForm.cshtml" />
     <Content Include="Views\AspNetUsers\UserPanel.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Home\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
